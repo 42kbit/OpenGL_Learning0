@@ -4,6 +4,7 @@
 #include "GLFW/glfw3.h"
 
 #include "Modules/FileReader/FileReader.h"
+#include "Modules/ShaderReader/ShaderReader.h"
 
 void glfw_window_size_callback(GLFWwindow*, int width, int height)
 {
