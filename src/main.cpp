@@ -3,29 +3,39 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+void glfw_window_size_callback(GLFWwindow*, int width, int height)
+{
+	glViewport(0,0,width,height);
+}
+
 int main(void)
 {
-    GLFWwindow* window;
+    GLFWwindow* windowPtr;
 
     /* Initialize the library */
     if (!glfwInit())
         return -1;
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    if (!window)
+    windowPtr = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    if (!windowPtr)
     {
         glfwTerminate();
         return -1;
     }
+
+	glfwSetWindowSizeCallback(windowPtr, glfw_window_size_callback);
+
 	/* Make the window's context current */
-    glfwMakeContextCurrent(window);
+    glfwMakeContextCurrent(windowPtr);
 	
 	if(!gladLoadGL())
 	{
 		std::cout << "Cannot load GLAD" << std::endl;
 		exit(-1);
 	}
+	std::cout << "[OpenGL] VERSION: " << glGetString(GL_VERSION) << std::endl;
+	std::cout << "[OpenGL] RENDERER: " << glGetString(GL_RENDERER) << std::endl;
 	
 	float verts[] = {0,0, 1,0, 0,1};
 	
@@ -39,7 +49,7 @@ int main(void)
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	
     /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
+    while (!glfwWindowShouldClose(windowPtr))
     {
         /* Render here */
 		glClearColor(0,1,0,1);
@@ -51,7 +61,7 @@ int main(void)
 		glDisableVertexAttribArray(0);
 
         /* Swap front and back buffers */
-        glfwSwapBuffers(window);
+        glfwSwapBuffers(windowPtr);
 
         /* Poll for and process events */
         glfwPollEvents();

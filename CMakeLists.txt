@@ -4,7 +4,9 @@ set(PROJECT_NAME OpenGL_Learning0)
 
 project(${PROJECT_NAME})
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+file(GLOB CPPS "src/*.cpp")
+
+add_executable(${PROJECT_NAME} ${CPPS})
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
