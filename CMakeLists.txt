@@ -4,9 +4,11 @@ set(PROJECT_NAME OpenGL_Learning0)
 
 project(${PROJECT_NAME})
 
-add_executable(${PROJECT_NAME}
- src/main.cpp
- src/Modules/FileReader/FileReader.cpp)
+add_executable(${PROJECT_NAME} 
+src/main.cpp
+src/Modules/FileReader/FileReader.cpp
+src/Modules/ShaderReader/ShaderReader.cpp
+)
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
