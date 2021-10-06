@@ -3,6 +3,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "Modules/FileReader/FileReader.h"
+
 void glfw_window_size_callback(GLFWwindow*, int width, int height)
 {
 	glViewport(0,0,width,height);
