@@ -60,7 +60,7 @@ int main(void)
 		0,1,0 
 	};
 
-	uint32_t programID = createProgram(vertex_shader, fragment_shader);
+	uint32_t programID = createProgram(readFile("res/shaders/vertex.glsl"), readFile("res/shaders/flat_color.glsl"));
 
 	uint32_t vbo;
 	glGenBuffers(1, &vbo);
