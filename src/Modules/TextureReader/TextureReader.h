@@ -1,4 +1,6 @@
-#pragma once
+#ifndef TEXTUREREADER_H
+#define TEXTUREREADER_H
+
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include "GL/glew.h"
@@ -30,3 +32,5 @@ uint32_t load_texture(const char* path,
     glBindTexture(GL_TEXTURE_2D, 0);
     return gl_id;
 }
+
+#endif
